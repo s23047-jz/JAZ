@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.pjatk.JakZur.Model.Car;
 
 @RestController
+@RestControllerAdvice
 @RequestMapping("/homework")
 public class ControllerHomework {
 
@@ -14,12 +15,18 @@ public class ControllerHomework {
 //        return "Hello";
 //    }
 
-    @GetMapping({"/","/{value}"})
-    public ResponseEntity<String> TwoValue(@RequestParam(required = false) String reqParam, @PathVariable(required = false) String value) {
-        return  ResponseEntity.ok(reqParam + " " + value);
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<String> handleException(RuntimeException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad request! Mesage: " + ex.getLocalizedMessage());
     }
 
-    @PutMapping({"/","/{id}"})
+    @GetMapping({"/", "/{value}"})
+
+    public ResponseEntity<String> TwoValue(@RequestParam(required = false) String reqParam, @PathVariable(required = false) String value) {
+        return ResponseEntity.ok(reqParam + " " + value);
+    }
+
+    @PutMapping({"/", "/{id}"})
     public String updateCar(@RequestBody(required = false) Car reqParamCar, @PathVariable(required = false) Long id) {
         return reqParamCar + " with id: " + id;
     }
