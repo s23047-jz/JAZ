@@ -1,13 +1,13 @@
-package pl.JakZur4.MovieService;
+package pl.pjatk.movies;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MovieServiceApplication {
+public class MoviesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MovieServiceApplication.class, args);
+		SpringApplication.run(MoviesApplication.class, args);
 	}
 
 }

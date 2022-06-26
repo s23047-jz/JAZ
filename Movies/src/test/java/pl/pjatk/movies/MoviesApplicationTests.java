@@ -1,10 +1,10 @@
-package pl.JakZur4.MovieService;
+package pl.pjatk.movies;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MovieServiceApplicationTests {
+class MoviesApplicationTests {
 
 	@Test
 	void contextLoads() {
